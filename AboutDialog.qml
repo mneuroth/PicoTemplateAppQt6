@@ -6,7 +6,7 @@ AboutDialogForm {
     signal close()
 
     lblAppInfos {
-        text: "nix" //applicationData !== null ? applicationData.getAppInfos() : "?"
+        text: applicationData !== null ? applicationData.getAppInfos() : "?"
     }
 
     lblIconInfos {

@@ -1,7 +1,7 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.3
-import Qt.labs.folderlistmodel 2.1
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import Qt.labs.folderlistmodel
 
 Page {
     id: root
@@ -117,7 +117,7 @@ Page {
             id: folderModel
             showFiles: bShowFiles
             showHidden: bIsAdminModus
-            nameFilters: ["*"]
+            nameFilters: ["*","*.*","*.txt","*.log"]
         }
 
         highlight: Rectangle {

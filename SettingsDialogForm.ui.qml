@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 Page {
     id: root
@@ -12,6 +12,7 @@ Page {
     property alias btnCancel: btnCancel
     property alias btnRestoreDefaultSettings: btnRestoreDefaultSettings
     property alias chbUseToolBar: chbUseToolBar
+    property alias chbMobileUI: chbMobileUI
     property alias chbOption1: chbOption1
     property alias chbOption2: chbOption2
 
@@ -35,6 +36,12 @@ Page {
                 id: chbUseToolBar
                 enabled: true
                 text: qsTr("Show toolbar")
+            }
+
+            CheckBox {
+                id: chbMobileUI
+                enabled: true
+                text: qsTr("Mobile UI")
             }
 
             CheckBox {

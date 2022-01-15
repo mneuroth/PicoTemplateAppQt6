@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 MobileFileDialogForm {
     id: root
@@ -11,6 +11,8 @@ MobileFileDialogForm {
           - bool hasAccessToSDCardPath()
           - void grantAccessToSDCardPath()
     */
+
+// TODO: allow sorting for: name, date, size -> radio button
 
     property string urlPrefix: "file://"
 
@@ -224,7 +226,7 @@ MobileFileDialogForm {
 
                 Image {
                     id: itemIcon
-                    source: "" //fileIsDir ? "directory.svg" : "file.svg"
+                    source: fileIsDir ? "/images/file96.svg" : "/images/new104.svg"
 
                     Layout.row: 0
                     Layout.column: 0

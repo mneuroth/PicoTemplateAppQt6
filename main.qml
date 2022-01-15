@@ -62,7 +62,7 @@ ApplicationWindow {
     }
 
     function triggerSaveAsFile() {
-        if( !applicationData.isMobileUI )
+        if( !settings.mobileUI )
         {
             fileDialog.openMode = false
             fileDialog.folder = "."
@@ -89,7 +89,7 @@ ApplicationWindow {
         {
             applicationData.getOpenFileContentAsync("*.txt")
         }
-        else if( !applicationData.isMobileUI )
+        else if( !settings.mobileUI )
         {
             fileDialog.openMode = true
             fileDialog.folder = "."
@@ -113,6 +113,7 @@ ApplicationWindow {
 
     function showSettingsDialog() {
         settingsDialog.chbUseToolBar.checked = settings.useToolBar
+        settingsDialog.chbMobileUI.checked = settings.mobileUI
         stackView.push(settingsDialog)
     }
 
@@ -252,7 +253,7 @@ ApplicationWindow {
 
             ToolButton {
                 id: toolButtonOpen
-                icon.source: "/open-folder-with-document.svg"
+                icon.source: "/images/open-folder-with-document.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -264,7 +265,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonSave
-                icon.source: "/floppy-disk.svg"
+                icon.source: "/images/floppy-disk.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -276,7 +277,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonUndo
-                icon.source: "/back-arrow.svg"
+                icon.source: "qrc:/images/back-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -287,7 +288,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonRedo
-                icon.source: "/redo-arrow.svg"
+                icon.source: "qrc:/images/redo-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -298,7 +299,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonSearch
-                icon.source: "/search.svg"
+                icon.source: "qrc:/images/search.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -309,7 +310,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonReplace
-                icon.source: "/replace.svg"
+                icon.source: "qrc:/images/replace.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -320,7 +321,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonPrevious
-                icon.source: "/left-arrow.svg"
+                icon.source: "qrc:/images/left-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -331,7 +332,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonNext
-                icon.source: "/right-arrow.svg"
+                icon.source: "qrc:/images/right-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -342,7 +343,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonShare
-                icon.source: "/share.svg"
+                icon.source: "qrc:/images/share.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -355,7 +356,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonSettings
-                icon.source: "/settings.svg"
+                icon.source: "qrc:/images/settings.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -367,7 +368,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonClose
-                icon.source: "/close.svg"
+                icon.source: "qrc:/images/close.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -441,6 +442,7 @@ ApplicationWindow {
         id: settings
 
         property bool useToolBar: true
+        property bool mobileUI: false // applicationData.isMobileUI
     }
 
     Connections {
@@ -498,6 +500,7 @@ ApplicationWindow {
         function onAccepted() {
             // TODO: update settings
             settings.useToolBar = settingsDialog.chbUseToolBar.checked
+            settings.mobileUI = settingsDialog.chbMobileUI.checked
 
             stackView.pop()
         }

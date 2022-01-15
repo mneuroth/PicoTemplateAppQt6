@@ -141,7 +141,7 @@ ApplicationWindow {
         }
 
         Label {
-            text: "stackView.currentItem.title"
+            text: stackView.currentItem.title
             anchors.centerIn: parent
         }
 

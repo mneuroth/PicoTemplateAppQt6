@@ -3,10 +3,15 @@
 
 #include <QLocale>
 #include <QTranslator>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    app.setOrganizationName("mneuroth.de");     // Computer/HKEY_CURRENT_USER/Software/mneuroth.de
+    app.setOrganizationDomain("mneuroth.de");
+    app.setApplicationName("PicoTemplateApp");
+    app.setWindowIcon(QIcon(":/pico.png"));
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();

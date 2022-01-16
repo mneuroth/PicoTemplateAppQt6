@@ -48,6 +48,6 @@ jobs:
         ls -lrt
 
         which macdeployqt
-        macdeployqt pico.app -dmg -qmldir=. -verbose=2
+        macdeployqt PicoTemplateAppQt6.app -dmg -qmldir=. -verbose=2
         ls -lrt        
 

@@ -82,12 +82,13 @@ jobs:
         emsdk activate --embedded 2.0.14
         . $EMSDK/emsdk_env.sh
         em++ --version
+        pwd
         ls -lrt
         ls ../Qt -lrt
         ls ../Qt/6.2.2 -lrt
         ls ../Qt/6.2.2/wasm_32 -lrt
         ls ../Qt/6.2.2/wasm_32/bin -lrt
-        #qmake -r PicoTemplateAppQt6.pro
+        cat ../Qt/6.2.2/wasm_32/bin/qmake
         ../Qt/6.2.2/wasm_32/bin/qmake -r PicoTemplateAppQt6.pro
         ls -lrt
         make

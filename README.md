@@ -25,11 +25,11 @@ with the Qt framework.
 
 ### Workflow
 
-Clone this repository and replace the app name "pico" or "picoapp" in all source and config files.
+Clone this repository and replace the app name "pico" or "picoapp" or "picotemplateapp" in all source and config files.
 
 Build status: 
 
-[![Linux CI](https://github.com/mneuroth/PicoTemplateApp/workflows/Linux%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
-[![Windows CI](https://github.com/mneuroth/PicoTemplateApp/workflows/Windows%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
-[![MacOS CI](https://github.com/mneuroth/PicoTemplateApp/workflows/MacOS%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
-[![Webassembly CI](https://github.com/mneuroth/PicoTemplateApp/workflows/WASM%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
+[![Linux CI](https://github.com/mneuroth/PicoTemplateAppQt6/workflows/Linux%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
+[![Windows CI](https://github.com/mneuroth/PicoTemplateAppQt6/workflows/Windows%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
+[![MacOS CI](https://github.com/mneuroth/PicoTemplateAppQt6/workflows/MacOS%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)
+[![Webassembly CI](https://github.com/mneuroth/PicoTemplateAppQt6/workflows/WASM%20CI/badge.svg)](https://github.com/mneuroth/PicoTemplateAppQt6/actions)

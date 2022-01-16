@@ -85,8 +85,10 @@ jobs:
         ls -lrt
         ls ../Qt -lrt
         ls ../Qt/6.2.2 -lrt
-        qmake -r PicoTemplateAppQt6.pro
-        #../Qt/6.2.2/wasm_32/bin/qmake -r PicoTemplateAppQt6.pro
+        ls ../Qt/6.2.2/wasm_32 -lrt
+        ls ../Qt/6.2.2/wasm_32/bin -lrt
+        #qmake -r PicoTemplateAppQt6.pro
+        ../Qt/6.2.2/wasm_32/bin/qmake -r PicoTemplateAppQt6.pro
         ls -lrt
         make
         ls -lrt

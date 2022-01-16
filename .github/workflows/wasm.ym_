@@ -93,7 +93,7 @@ jobs:
         ls -lrt
         make
         ls -lrt
-        zip pico_wasm_6_2_2.zip pico.js PicoTemplateAppQt6.wasm pico.html qtlogo.svg qtloader.js
+        zip pico_wasm_6_2_2.zip PicoTemplateAppQt6.js PicoTemplateAppQt6.wasm PicoTemplateAppQt6.html qtlogo.svg qtloader.js
         ls -lrt
         unzip -v pico_wasm_6_2_2.zip
         pwd

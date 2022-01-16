@@ -128,8 +128,8 @@ ApplicationWindow {
 
         ToolButton {
             id: toolButton
-            text: stackView.depth > 1 ? "\u25C0" : "\u2630"
-            //icon.source: stackView.depth > 1 ? "/back.svg" : "/menu_bars.svg"
+            //text: stackView.depth > 1 ? "\u25C0" : "\u2630"
+            icon.source: stackView.depth > 1 ? "/images/back.svg" : "/images/menu_bars.svg"
             font.pixelSize: Qt.application.font.pixelSize * 1.6
             anchors.left: parent.left
             onClicked: {
@@ -148,8 +148,8 @@ ApplicationWindow {
 
         ToolButton {
             id: menuButton
-            text: "\u22EE"
-            //icon.source: "/menu.svg"
+            //text: "\u22EE"
+            icon.source: "/images/menu.svg"
             font.pixelSize: Qt.application.font.pixelSize * 2.0
             anchors.right: parent.right
             onClicked: menu.open()

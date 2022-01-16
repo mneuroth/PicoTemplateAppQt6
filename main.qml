@@ -450,10 +450,12 @@ ApplicationWindow {
 
         //onRejected: stackView.pop()       // for Qt 5.12.xx
         function onRejected() {
+            //addToOutput("mobileFileDialog Rejected")
             stackView.pop()
             focusToEditor()
         }
         function onAccepted() {
+            //addToOutput("mobileFileDialog Accepted")
             currentDirectory = mobileFileDialog.lblDirectoryName.text
             stackView.pop()
             focusToEditor()
@@ -463,6 +465,7 @@ ApplicationWindow {
             processSaveFileCallback(fileName)
         }
         function onOpenSelectedFile(fileName) {
+            //addToOutput("openSelectedFile="+fileName)
             processOpenFileCallback(fileName)
         }
         function onDeleteSelectedFile(fileName) {
@@ -474,13 +477,13 @@ ApplicationWindow {
         }
 
         function onStorageOpenFile() {
-            console.log("storage open")
-            addToOutput("storage open")
+            //console.log("storage open")
+            //addToOutput("storage open")
             storageAccess.openFile()
         }
         function onStorageCreateFile(fileNane) {
-            console.log("storage create file "+fileNane)
-            addToOutput("storage create file "+fileNane)
+            //console.log("storage create file "+fileNane)
+            //addToOutput("storage create file "+fileNane)
             setFileName(fileName, null)
             storageAccess.createFile(fileNane)
         }
@@ -512,4 +515,30 @@ ApplicationWindow {
         }
     }
 
+    Connections {
+        target: storageAccess
+
+        function onOpenFileContentReceived(fileUri, decodedFileUri, fileContent) {
+            //console.log("onOpenFileContentReceived")
+            //addToOutput("onOpenFileContentReceived")
+            homePage.txtEditor.text = fileContent
+            setFileName(fileUri, decodedFileUri)
+            stackView.pop()
+        }
+        function onOpenFileCanceled() {
+            //console.log("onOpenFileCanceled")
+            //addToOutput("onOpenFileCanceled")
+            stackView.pop()
+        }
+        function onOpenFileError(message) {
+            homePage.txtEditor.text = message
+            //addToOutput("onOpenFileError: "+message)
+            stackView.pop()
+        }
+        function onCreateFileReceived(fileUri, decodedFileUri) {
+            //console.log("create file received "+fileUri+" decoded="+decodedFileUri)
+            //addToOutput("create file received "+fileUri+" decoded="+decodedFileUri)
+            setFileName(fileUri, decodedFileUri)
+        }
+    }
 }

@@ -2,10 +2,14 @@ QT += quick svg printsupport
 
 SOURCES += \
         main.cpp \
-        applicationdata.cpp
+        applicationdata.cpp \
+        storageaccess.cpp
 
 HEADERS += \
-        applicationdata.h
+        applicationdata.h \
+        storageaccess.h
+
+# see: https://github.com/ekke/ekkesSHAREexample
 
 resources.files = main.qml 
 resources.prefix = /$${TARGET}
@@ -92,7 +96,12 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew \
     android/gradlew.bat \
-    android/res/values/libs.xml
+    android/res/values/libs.xml \
+    android/src/de/mneuroth/activity/sharex/QShareActivity.java \
+    android/src/de/mneuroth/utils/QSharePathResolver.java \
+    android/src/de/mneuroth/utils/QShareUtils.java \
+    android/src/de/mneuroth/utils/QStorageAccess.java \
+    android/src/de/mneuroth/utils/Tuple.java
 
 contains(ANDROID_TARGET_ARCH,arm64-v8a) {
     ANDROID_PACKAGE_SOURCE_DIR = \

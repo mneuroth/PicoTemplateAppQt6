@@ -117,7 +117,7 @@ Page {
             id: folderModel
             showFiles: bShowFiles
             showHidden: bIsAdminModus
-            nameFilters: ["*","*.*","*.txt","*.log"]
+            nameFilters: ["*"] // ["*.*","*.txt","*.log","*.cpp","*.h"]
         }
 
         highlight: Rectangle {

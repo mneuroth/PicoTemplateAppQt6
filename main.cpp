@@ -12,6 +12,10 @@
 
 #include "applicationdata.h"
 
+#ifdef _WITH_STORAGE_ACCESS
+#include "storageaccess.h"
+#endif
+
 #define _WITH_QDEBUG_REDIRECT
 #define _WITH_ADD_TO_LOG
 
@@ -67,13 +71,13 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
+    StorageAccess aStorageAccess;
+
 #if defined(Q_OS_ANDROID)
 //    ApplicationData data(0, appui.GetShareUtils(), aStorageAccess, engine);
-    StorageAccess aStorageAccess;
     ApplicationData data(0, new ShareUtils(), aStorageAccess, engine);
     QObject::connect(&app, SIGNAL(applicationStateChanged(Qt::ApplicationState)), &data, SLOT(sltApplicationStateChanged(Qt::ApplicationState)));
 #else
-    StorageAccess aStorageAccess;
     ApplicationData data(0, new ShareUtils(), aStorageAccess, engine);
 #endif
 

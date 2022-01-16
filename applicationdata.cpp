@@ -4,6 +4,8 @@
 //#include "androidtasks.h"
 #ifdef _WITH_SHARING
 #include "shareutils.hpp"
+#endif
+#ifdef _WITH_STORAGE_ACCESS
 #include "storageaccess.h"
 #endif
 

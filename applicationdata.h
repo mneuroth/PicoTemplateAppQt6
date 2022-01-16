@@ -2,7 +2,7 @@
 #define APPLICATIONDATA_H
 
 #undef _WITH_SHARING
-#undef _WITH_STORAGE_ACCESS
+#define _WITH_STORAGE_ACCESS
 
 #include <QObject>
 #include <QQmlApplicationEngine>

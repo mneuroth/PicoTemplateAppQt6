@@ -59,9 +59,9 @@ jobs:
         # Host platform
         host: 'linux' # optional
         # Target platform for build
-        target: 'wasm_32'
+        target: 'desktop'
         # Architecture for Windows/Android
-        arch: 'desktop' # ,'wasm_32' # optional
+        arch: 'wasm_32' # optional
         # Whether or not to install Qt dependencies on Linux
         install-deps: 'true'
         # Additional Qt modules to install

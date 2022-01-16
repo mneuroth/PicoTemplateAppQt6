@@ -3,11 +3,15 @@ QT += quick svg printsupport
 SOURCES += \
         main.cpp \
         applicationdata.cpp \
-        storageaccess.cpp
+        storageaccess.cpp \
+        applicationui.cpp \
+        shareutils.cpp
 
 HEADERS += \
         applicationdata.h \
-        storageaccess.h
+        storageaccess.h \
+        applicationui.hpp \
+        shareutils.hpp
 
 # see: https://github.com/ekke/ekkesSHAREexample
 
@@ -97,6 +101,7 @@ DISTFILES += \
     android/gradlew \
     android/gradlew.bat \
     android/res/values/libs.xml \
+    android/res/xml/filepaths.xml \
     android/src/de/mneuroth/activity/sharex/QShareActivity.java \
     android/src/de/mneuroth/utils/QSharePathResolver.java \
     android/src/de/mneuroth/utils/QShareUtils.java \
@@ -106,4 +111,10 @@ DISTFILES += \
 contains(ANDROID_TARGET_ARCH,arm64-v8a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
+}
+
+android {
+    SOURCES += android/androidshareutils.cpp
+
+    HEADERS += android/androidshareutils.hpp
 }

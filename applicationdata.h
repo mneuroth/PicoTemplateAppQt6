@@ -1,7 +1,7 @@
 #ifndef APPLICATIONDATA_H
 #define APPLICATIONDATA_H
 
-#undef _WITH_SHARING
+#define _WITH_SHARING
 #define _WITH_STORAGE_ACCESS
 
 #include <QObject>

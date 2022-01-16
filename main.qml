@@ -15,6 +15,7 @@ ApplicationWindow {
 
     property int iconSize: 40
     property int defaultIconSize: 40
+    property int minimalIconSize: 12
 
     function setFileName(fileUri, decodedFileUri) {
         currentFileName = fileUri
@@ -237,8 +238,10 @@ ApplicationWindow {
         //width: flow.implicitWidth
 /*
         onHeightChanged: {
-            if( toolBar.height>2*iconSize+flow.spacing ) {
-                iconSize -= 2
+            if( toolBar.height>iconSize+flow.spacing ) {
+                if( iconSize>minimalIconSize ) {
+                    iconSize -= 2
+                }
             } else if ( toolBar.height<defaultIconSize ) {
                 if( iconSize<defaultIconSize ) {
                     iconSize += 1
@@ -277,7 +280,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonUndo
-                icon.source: "qrc:/images/back-arrow.svg"
+                icon.source: "/images/back-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -288,7 +291,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonRedo
-                icon.source: "qrc:/images/redo-arrow.svg"
+                icon.source: "/images/redo-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -299,7 +302,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonSearch
-                icon.source: "qrc:/images/search.svg"
+                icon.source: "/images/search.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -310,7 +313,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonReplace
-                icon.source: "qrc:/images/replace.svg"
+                icon.source: "/images/replace.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -321,7 +324,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonPrevious
-                icon.source: "qrc:/images/left-arrow.svg"
+                icon.source: "/images/left-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -332,7 +335,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonNext
-                icon.source: "qrc:/images/right-arrow.svg"
+                icon.source: "/images/right-arrow.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -343,7 +346,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonShare
-                icon.source: "qrc:/images/share.svg"
+                icon.source: "/images/share.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -351,12 +354,12 @@ ApplicationWindow {
                 //text: "Share"
                 onClicked: {
                     var s = homePage.txtEditor.text
-                    applicationData.shareSimpleText(s);
+                    var ok = applicationData.shareSimpleText(s);
                 }
             }
             ToolButton {
                 id: toolButtonSettings
-                icon.source: "qrc:/images/settings.svg"
+                icon.source: "/images/settings.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -368,7 +371,7 @@ ApplicationWindow {
             }
             ToolButton {
                 id: toolButtonClose
-                icon.source: "qrc:/images/close.svg"
+                icon.source: "/images/close.svg"
                 enabled: !isDialogOpen()
                 height: iconSize
                 width: height
@@ -512,6 +515,25 @@ ApplicationWindow {
         }
         function onRestoreDefaultSettings() {
             // TODO: restore default settings
+        }
+    }
+
+    Connections {
+        target: applicationData
+
+        // used for WASM platform:
+        function onReceiveOpenFileContent(fileName, fileContent) {
+            setFileName(fileName, null)
+            homePage.txtEditor.text = fileContent
+        }
+        /*
+        function receiveOpenFileContent(fileName, fileContent) {
+            setFileName(fileName, null)
+            homePage.txtEditor.text = fileContent
+        }
+        */
+        function onSendErrorText(msg) {
+            homePage.txtEditor.text += "\n" + msg
         }
     }
 

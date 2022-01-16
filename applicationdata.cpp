@@ -527,7 +527,7 @@ bool ApplicationData::shareSimpleText(const QString & text)
 {
     if( m_pShareUtils != 0 )
     {
-#ifdef _WITH_SHARE
+#ifdef _WITH_SHARING
         m_pShareUtils->share(text, QUrl());
 #endif
         return true;

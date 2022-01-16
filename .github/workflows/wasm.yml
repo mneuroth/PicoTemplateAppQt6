@@ -57,7 +57,7 @@ jobs:
         # Version of Qt to install
         version: '6.2.2'
         # Host platform
-        host: # optional
+        host: 'linux' # optional
         # Target platform for build
         target: 'wasm_32'
         # Architecture for Windows/Android

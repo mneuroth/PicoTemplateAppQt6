@@ -83,6 +83,12 @@ int main(int argc, char *argv[])
     StorageAccess aStorageAccess;
 
 #if defined(Q_OS_ANDROID)
+    QObject::connect(&app, SIGNAL(applicationStateChanged(Qt::ApplicationState)), &appui, SLOT(onApplicationStateChanged(Qt::ApplicationState)));
+    QObject::connect(&app, SIGNAL(saveStateRequest(QSessionManager &)), &appui, SLOT(onSaveStateRequest(QSessionManager &)), Qt::DirectConnection);
+    QObject::connect(&appui, SIGNAL(requestApplicationQuit()), &app, SLOT(quit())/* , Qt::QueuedConnection*/);
+#endif
+
+#if defined(Q_OS_ANDROID)
     ApplicationData data(0, appui.GetShareUtils(), aStorageAccess, engine);
     QObject::connect(&app, SIGNAL(applicationStateChanged(Qt::ApplicationState)), &data, SLOT(sltApplicationStateChanged(Qt::ApplicationState)));
 #else
@@ -93,7 +99,6 @@ int main(int argc, char *argv[])
 #ifdef _WITH_STORAGE_ACCESS
     engine.rootContext()->setContextProperty("storageAccess", &aStorageAccess);
 #endif
-
 
     engine.load(url);
 

@@ -1,17 +1,32 @@
-QT += quick svg printsupport
+QT += quick qml svg printsupport
+
+lessThan(QT_MAJOR_VERSION, 6): QT += androidextras purchasing
+
+INCLUDEPATH += purchasing/qmltypes \
+    purchasing/inapp \
+    $$PWD
+
+CONFIG += qmltypes
+QML_IMPORT_PATH = $$PWD/qmfunctions.h
+QML_IMPORT_NAME = PicoTemplateApp
+QML_IMPORT_MAJOR_VERSION = 1
 
 SOURCES += \
         main.cpp \
         applicationdata.cpp \
+        qmlfunctions.cpp \
         storageaccess.cpp \
         applicationui.cpp \
         shareutils.cpp
 
 HEADERS += \
         applicationdata.h \
+        qmlfunctions.h \
         storageaccess.h \
         applicationui.hpp \
         shareutils.hpp
+
+include($$PWD/purchasing/purchasing.pri)
 
 # see: https://github.com/ekke/ekkesSHAREexample
 
@@ -37,6 +52,11 @@ resources9.files = Page1Form.ui.qml
 resources9.prefix = /$${TARGET}
 resources10.files = Page2Form.ui.qml
 resources10.prefix = /$${TARGET}
+resources11.files = SupportDialogForm.ui.qml
+resources11.prefix = /$${TARGET}
+resources12.files = SupportDialog.qml
+resources12.prefix = /$${TARGET}
+
 
 resources21.files = images/floppy-disk.svg
 resources21.prefix = /
@@ -71,7 +91,7 @@ resources35.prefix = /
 resources36.files = images/new104.svg
 resources36.prefix = /
 
-RESOURCES += resources resources1 resources2 resources3 resources4 resources5 resources6 resources7 resources8 resources9 resources10 #resources11 resources12
+RESOURCES += resources resources1 resources2 resources3 resources4 resources5 resources6 resources7 resources8 resources9 resources10 resources11 resources12
 RESOURCES += resources21 resources22 resources23 resources24 resources25 resources26 resources27 resources28 resources29 resources30 resources31 resources32 resources33 resources34 resources35 resources36
 
 #RESOURCES += qml.qrc

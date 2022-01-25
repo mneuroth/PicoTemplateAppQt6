@@ -38,10 +38,10 @@ android {
     OTHER_FILES += \
 #PATCH        $$PWD/android/AndroidManifest.xml \
 #PATCH        $$PWD/android/build.gradle \
-        $$JAVA_CLASS_PATH/Security.java \
-        $$JAVA_CLASS_PATH/InAppPurchase.java \
-        $$JAVA_CLASS_PATH/Base64.java \
-        $$JAVA_CLASS_PATH/Base64DecoderException.java
+#PATCH        $$JAVA_CLASS_PATH/Security.java \
+#PATCH        $$JAVA_CLASS_PATH/InAppPurchase.java \
+#PATCH        $$JAVA_CLASS_PATH/Base64.java \
+#PATCH        $$JAVA_CLASS_PATH/Base64DecoderException.java
 }
 
 ios {

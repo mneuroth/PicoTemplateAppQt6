@@ -126,7 +126,11 @@ DISTFILES += \
     android/src/de/mneuroth/utils/QSharePathResolver.java \
     android/src/de/mneuroth/utils/QShareUtils.java \
     android/src/de/mneuroth/utils/QStorageAccess.java \
-    android/src/de/mneuroth/utils/Tuple.java
+    android/src/de/mneuroth/utils/Tuple.java \
+    android/src/org/qtproject/qt/android/purchasing/Security.java \
+    android/src/org/qtproject/qt/android/purchasing/InAppPurchase.java \
+    android/src/org/qtproject/qt/android/purchasing/Base64.java \
+    android/src/org/qtproject/qt/android/purchasing/Base64DecoderException.java
 
 contains(ANDROID_TARGET_ARCH,arm64-v8a) {
     ANDROID_PACKAGE_SOURCE_DIR = \

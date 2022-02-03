@@ -168,6 +168,7 @@ ApplicationWindow {
         ToolButton {
             id: menuButton
             //text: "\u22EE"
+            enabled: !isDialogOpen()
             icon.source: "/images/menu.svg"
             font.pixelSize: Qt.application.font.pixelSize * 2.0
             anchors.right: parent.right
@@ -175,6 +176,7 @@ ApplicationWindow {
 
             Menu {
                 id: menu
+                enabled: !isDialogOpen()
                 y: menuButton.height
 
                 MenuItem {
@@ -245,6 +247,7 @@ ApplicationWindow {
                 MenuSeparator {}
                 MenuItem {
                     text: qsTr("Test")
+                    enabled: !isDialogOpen()
                     onTriggered: {
                         //console.log(qmlTestId.test())
                         //console.log(supportLevel0)
@@ -257,6 +260,7 @@ ApplicationWindow {
                 MenuSeparator {}
                 MenuItem {
                     text: qsTr("Exit")
+                    enabled: !isDialogOpen()
                     onTriggered: {
                         Qt.quit()
                     }

@@ -130,6 +130,18 @@ ApplicationWindow {
                stackView.currentItem === supportDialog
     }
 
+    function showInfoDialog(msg, title) {
+        infoDialog.messageText = msg
+        if( title !== undefined ) {
+            infoDialog.title = title            
+        }
+        infoDialog.open()
+    }
+
+    function showThankYouDialog(supportLevel) {
+        showInfoDialog(qsTr("Thank you for supporting the development of this application !"), qsTr("Thank you !"))
+    }
+
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
@@ -234,11 +246,12 @@ ApplicationWindow {
                 MenuItem {
                     text: qsTr("Test")
                     onTriggered: {
-                        console.log(qmlTestId.test())
-                        console.log(supportLevel0)
-                        console.log(supportLevel0.identifier)
-                        console.log(supportLevel0.price)
-                        console.log(myStoreId)
+                        //console.log(qmlTestId.test())
+                        //console.log(supportLevel0)
+                        //console.log(supportLevel0.identifier)
+                        //console.log(supportLevel0.price)
+                        //console.log(myStoreId)
+                        showInfoDialog("hello", "world")
                     }
                 }
                 MenuSeparator {}
@@ -475,9 +488,39 @@ ApplicationWindow {
         id: myStoreId
     }
 
+    Dialog {
+        id: infoDialog
+        visible: false
+        title: qsTr("Error")
+        width: 300
+        height: 200
+
+        property alias messageText: messageId.text
+
+        Flow {
+            Label {
+                id: messageId
+                //text: "hello test !"
+            }
+
+            Button {
+                text: "Close"
+
+                onClicked: infoDialog.close()
+            }
+        }
+
+        //standardButtons: StandardButton.Ok
+        //buttons: Dialog.MessageDialog.Ok
+        onAccepted: {
+            console.log("Close error msg")
+        }
+    }
+
     Product {
         id: supportLevel0
         identifier: "support_level_0"
+        store: myStoreId
         type: Product.Unlockable
 
         property bool purchasing: false
@@ -516,6 +559,7 @@ ApplicationWindow {
     Product {
         id: supportLevel1
         identifier: "support_level_1"
+        store: myStoreId
         type: Product.Unlockable
 
         property bool purchasing: false
@@ -552,6 +596,7 @@ ApplicationWindow {
     Product {
         id: supportLevel2
         identifier: "support_level_2"
+        store: myStoreId
         type: Product.Unlockable
 
         property bool purchasing: false

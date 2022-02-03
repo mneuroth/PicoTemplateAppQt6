@@ -24,7 +24,7 @@ Page {
 
         TextEdit {
             id: txtEditor
-            text: qsTr("You are on the home page.")
+            text: qsTr("You are on the home page.\n")
             anchors.centerIn: parent
         }
     }

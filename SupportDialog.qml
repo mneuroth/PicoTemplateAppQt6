@@ -52,7 +52,6 @@ SupportDialogForm {
     onVisibleChanged: {
         //var store = storeLoader !== null ? storeLoader.item : null
         var store = myStoreId
-        console.log("SUPPORT visible changed "+store)
         if(store!==null) {
             lblLevel0.text = qsTr("Price: ") + /*store.*/supportLevel0.price
             lblLevel1.text = qsTr("Price: ") + /*store.*/supportLevel1.price

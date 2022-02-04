@@ -9,6 +9,7 @@
 #include <QDir>
 #include <QFile>
 #include <QDateTime>
+#include <QQuickStyle>
 
 #include "applicationdata.h"
 
@@ -58,6 +59,8 @@ int main(int argc, char *argv[])
     app.setOrganizationDomain("mneuroth.de");
     app.setApplicationName("PicoTemplateApp");
     app.setWindowIcon(QIcon(":/pico.png"));
+
+    QQuickStyle::setStyle("Material"); // Basic, Fusion, Imagine, macOS, Material, Universal, Windows
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
